@@ -170,7 +170,7 @@ packer.use_rocks = function(rock)
   if type(rock) == 'string' then
     rock = { rock }
   end
-  if not vim.tbl_islist(rock) and type(rock[1]) == 'string' then
+  if not vim.islist(rock) and type(rock[1]) == 'string' then
     rocks[rock[1]] = rock
   else
     for _, r in ipairs(rock) do
@@ -281,7 +281,7 @@ manage = function(plugin_data)
       type(plugin_spec.requires) == 'string'
       or (
         type(plugin_spec.requires) == 'table'
-        and not vim.tbl_islist(plugin_spec.requires)
+        and not vim.islist(plugin_spec.requires)
         and #plugin_spec.requires == 1
       )
     then
